@@ -6,6 +6,8 @@
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
 
+Ensure that the version of `Node` installed is a version that is compatible with `Vite`.
+
 Run the following terminal command and follow the prompts in the CLI. This will allow a`TypeScript` or `JavaScript` `React` application to be generated. `Vite` can also be used to setup applications using frameworks or libraries such as `Vue`, `Angular` and `Svelte`:
 
 ```shell
