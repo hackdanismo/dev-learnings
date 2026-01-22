@@ -2,6 +2,7 @@
 `React` is an open-source front-end JavaScript library, created by `Meta` (formally Facebook), to build user interfaces based on reusable components. 
 
 + [Install](#install)
++ [Run Server](#run-server)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -46,3 +47,10 @@ src/
 ```
 
 To stop the development server and stop the application from within the terminal, use the keyboard command: `control` + `c`.
+
+## Run Server
+To run the `development server` to view the application locally on `localhost`, use the terminal command:
+
+```shell
+$ npm run dev
+```
