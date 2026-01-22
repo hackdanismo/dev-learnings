@@ -32,3 +32,17 @@ Once the setup has been completed the application will be running on the default
 
 <img width="1622" height="859" alt="The React application running on localhost." src="https://github.com/user-attachments/assets/7ea8d412-1547-40b0-8f6d-e5a6d9c1642c" />
 
+The file structure in the `src` directory of the app that has been generated will look something like this:
+
+```
+src/
+├─ assets/
+│  └─ react.svg
+│
+├─ App.css
+├─ App.tsx
+├─ index.css
+├─ main.tsx
+```
+
+To stop the development server and stop the application from within the terminal, use the keyboard command: `control` + `c`.
