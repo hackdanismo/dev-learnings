@@ -28,3 +28,7 @@ When making a section from the list in the CLI once `React` is selected, the lan
 
 <img width="578" height="330" alt="Screenshot of the terminal showing the list of options when React has been selected." src="https://github.com/user-attachments/assets/1693d952-07e8-46c0-8801-10eb4c9cbdc2" />
 
+Once the setup has been completed the application will be running on the default port on `localhost`: [http://localhost:5173/](http://localhost:5173/) and the application can be viewed inside a browser.
+
+<img width="1622" height="859" alt="The React application running on localhost." src="https://github.com/user-attachments/assets/7ea8d412-1547-40b0-8f6d-e5a6d9c1642c" />
+
