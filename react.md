@@ -7,6 +7,7 @@
 + [Components](#components)
     + [Building a Component](#building-a-component)
     + [Import a Component](#import-a-component)
+    + [Props](#props)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -275,4 +276,48 @@ The use of the `<>` and `</>` fragments wrapped around multiple components, avoi
     <Button />
     <Button />
 </>
+```
+
+### Props
+To pass data to a component, `props` - known as `properties` - can be used. 
+
+To begin, in `TypeScript`, the `prop types` need to be defined. For the `children` prop, this will be set to: `React.ReactNode` (as an example). This is set within an object named `type`. This applies `type checking` to all props that are used to check the data type that is being passed and ensure that it is valid. This helps to avoid potential bugs and issues.
+
+
+```typescript
+type TyoeProps = {
+    prop: React.ReactNode
+}
+```
+
+Once the `prop types` are defined, this needs to be set within the `function`:
+
+```typescript
+const Component = ({ prop }: TypeProps) => {
+    return <tag>{prop}</tag>
+}
+```
+
+In the `Button` component example, a `children` `prop` can be used. This is a core `React` idea. The `children` prop is a special prop that represents whatever is placed between the opening and closing tags. This is ideal for the label of a `Button`. Here is the updated `Button` component:
+
+```typescript
+type ButtonProps = {
+    children: React.ReactNode
+}
+
+const Button = ({ children }: ButtonProps) => {
+    return <button>{children}</button>
+}
+
+export default Button
+```
+
+When the `Button` component is being rendered, this now needs to have a label placed between an opening and closing tag. The `prop` allows the `Button` component to be reused and each button to have its own label. In this example, the label is set to be `Settings`.
+
+```typescript
+{/* Without a children prop, a self-closing tag */}
+<Button />
+
+{/* With a children prop, using and opening and closing tag with the label text between  */}
+<Button>Settings</Button>
 ```
