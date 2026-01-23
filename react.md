@@ -8,6 +8,7 @@
     + [Building a Component](#building-a-component)
     + [Import a Component](#import-a-component)
     + [Props](#props)
+        + [Default Prop Values](#default-prop-values)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -318,6 +319,49 @@ When the `Button` component is being rendered, this now needs to have a label pl
 {/* Without a children prop, a self-closing tag */}
 <Button />
 
-{/* With a children prop, using and opening and closing tag with the label text between  */}
+{/* With a children prop, using and opening and closing tag with the label text between */}
+<Button>Settings</Button>
+```
+
+#### Default Prop Values
+To avoid empty `props`, a `default value` can be assigned to a prop. This ensures that if no value is passed to the component, the default value will be rendered and this can avoid any potential issues or errors.
+
+```typescript
+type ButtonProps = {
+    children?: React.ReactNode
+}
+
+const Button = ({ children = "Button" }: ButtonProps) => {
+    return <button>{children}</button>
+}
+
+export default Button
+```
+
+To understand this further there are two main changes. The first, adding a `?` at the end of the `children` prop type checking, turns the prop to be optional:
+
+```typescript
+type ButtonProps = {
+    // The '?' added turns the prop to be optional and not required
+    children?: React.ReactNode
+}
+```
+
+The second change is the addition of the string `"Button"` as the default value itself. This ensures that if no value is passed into the `children` prop, this default value will be used instead.
+
+```typescript
+// Use the default value of "Button" for the label if no value is passed into the component
+const Button = ({ children = "Button" }: ButtonProps) => {
+    return <button>{children}</button>
+}
+```
+
+So when using the component with `default prop values`:
+
+```typescript
+{/* This will render the default value of "Button" as its label */}
+<Button />
+
+{/* This will render the value passed to the component of "Settings" as its label */}
 <Button>Settings</Button>
 ```
