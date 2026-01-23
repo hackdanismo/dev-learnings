@@ -5,6 +5,8 @@
 + [Run Server](#run-server)
 + [Setup](#setup)
 + [Components](#components)
+    + [Building a Component](#building-a-component)
+    + [Import a Component](#import-a-component)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -64,6 +66,22 @@ The initial `React` setup using `Vite` has a file named `App.tsx`. This is a com
 // src/App.tsx
 
 function App() {
+    return (
+        <>
+            <h1>Hello, World</h1>
+        </>
+    )
+}
+
+export default App
+```
+
+A component can be written using `arrow syntax` for the function instead of the typical `function` keyword, if required.
+
+```typescript
+// src/App.tsx
+
+const App = () => {
     return (
         <>
             <h1>Hello, World</h1>
@@ -162,4 +180,64 @@ src/
 ├─ App.tsx
 ├─ index.css
 ├─ main.tsx
+```
+
+### Building a Component
+A simple `component` in `React`, without any `props`, could look like this `Button` example:
+
+```typescript
+// src/components/Button/index.tsx
+
+const Button = () => {
+    return <button>Button</button>;
+};
+
+export default Button;
+```
+
+The semicolons can be removed as both `JavaScript` and `TypeScript` have `Automatic Semicolon Insertion (ASI)`. The component can be updated without having semicolons.
+
+```typescript
+// src/components/Button/index.tsx
+
+const Button = () => {
+    return <button>Button</button>
+}
+
+export default Button
+```
+
+Once a component is created it can be imported into other components and pages within the `React` application. This allows a component to be truly resuable.
+
+### Import a Component
+Once a component has been created it can then be imported into another component or page within the `React` application. The `import` keyword is used to import a component followed by the name of the component and the location/file path. 
+
+```typescript
+import Button from './components/Button'
+```
+
+To import the `Button` component into the `App.tsx` file, the code would look like this (code comments have been added for clarity):
+
+```typescript
+// src/App.tsx
+
+// Use the import keyword to import the component into this component
+import Button from './components/Button'
+
+function App() {
+    return (
+        <>
+            {/* Render the Button component here */}
+            <Button />
+        </>
+    )
+}
+
+export default App
+```
+
+The component then needs to be rendered within the component from within the function. This is added by using a `tag-like` syntax (e.g. `<Button />`). This is self-closing initially. The `Button` component will now render on the page or within the component.
+
+```typescript
+<Button />
 ```
