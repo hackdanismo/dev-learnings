@@ -207,6 +207,8 @@ const Button = () => {
 export default Button
 ```
 
+The `export` keyword is used to allow the component to be imported into another component or page across the application.
+
 Once a component is created it can be imported into other components and pages within the `React` application. This allows a component to be truly resuable.
 
 ### Import a Component
@@ -240,4 +242,37 @@ The component then needs to be rendered within the component from within the fun
 
 ```typescript
 <Button />
+```
+
+It is simple to reuse this component in other components and on pages, as this example shows with the `Button` component being rendered three times:
+
+```typescript
+// src/App.tsx
+
+// Use the import keyword to import the component into this component
+import Button from './components/Button'
+
+function App() {
+    return (
+        <>
+            {/* Render the Button component here multiple times */}
+            <Button />
+            <Button />
+            <Button />
+        </>
+    )
+}
+
+export default App
+```
+
+The use of the `<>` and `</>` fragments wrapped around multiple components, avoids errors occuring and avoids the use of an empty `<div>` element that would then be rendered in the `DOM (Document Object Model)`. A fragement is not needed if a single component is being returned, only needed for multiple components.
+
+```typescript
+{/* The fragment is wrapped around multiple components, not needed for a single component */}
+<>
+    <Button />
+    <Button />
+    <Button />
+</>
 ```
