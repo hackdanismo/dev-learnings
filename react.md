@@ -3,6 +3,7 @@
 
 + [Install](#install)
 + [Run Server](#run-server)
++ [Setup](#setup)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -54,3 +55,44 @@ To run the `development server` to view the application locally on `localhost`, 
 ```shell
 $ npm run dev
 ```
+
+## Setup
+The initial `React` setup using `Vite` has a file named `App.tsx`. This is a component. The code can be simplified to render `Hello, World` on the page by updating this file. The CSS stylesheet has also be removed to avoid any default styling from being applied.
+
+```typescript
+// src/App.tsx
+
+function App() {
+    return (
+        <>
+            <h1>Hello, World</h1>
+        </>
+    )
+}
+
+export default App
+```
+
+In the `main.tsx` file, also remove the line that imports the `index.css` stylesheet to have no styling applied to the application.
+
+```typescript
+import './index.css'
+```
+
+The `main.tsx` file will now look like this:
+
+```typescript
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+
+import App from './App.tsx'
+
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+        <App />
+    </StrictMode>,
+)
+```
+
+<img width="1622" height="470" alt="The application running in the browser with no CSS styles applied." src="https://github.com/user-attachments/assets/390fb3d4-e84a-4c86-871a-9af28e885f03" />
+
