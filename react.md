@@ -4,6 +4,7 @@
 + [Install](#install)
 + [Run Server](#run-server)
 + [Setup](#setup)
++ [Components](#components)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -96,3 +97,69 @@ createRoot(document.getElementById('root')!).render(
 
 <img width="1622" height="470" alt="The application running in the browser with no CSS styles applied." src="https://github.com/user-attachments/assets/390fb3d4-e84a-4c86-871a-9af28e885f03" />
 
+## Components
+`React` applications are usually made up of reusable blocks, known as `Components`. It is often recommended to add the components to a folder in the project `src` directory named `components` to make them easier to find. The file structure would look something like this:
+
+```
+src/
+├─ assets/
+│  └─ react.svg
+│
+├─ components/
+│
+├─ App.css
+├─ App.tsx
+├─ index.css
+├─ main.tsx
+```
+
+Within the `components` sub-directory a folder can be added for each component - for example, a `Button` - and an `index.tsx` file can be added containing the code for the component itself. `TypeScript` uses `.tsx` files whilst `JavaScript` uses `.jsx` files. In this application, `TypeScript` is being used.
+
+```
+src/
+├─ assets/
+│  └─ react.svg
+│
+├─ components/
+│  └─ Button/
+│      └─ index.tsx
+│
+├─ App.css
+├─ App.tsx
+├─ index.css
+├─ main.tsx
+```
+
+A simple `Hello` component written in `TypeScript` to render `Hello` followed by a name, would have the following code within a file named `index.tsx`. This would be inside of the `components` folder and then inside of a sub-directory named `Hello`:
+
+```typescript
+// src/components/Hello/index.tsx
+
+type HelloProps = {
+    name: string;
+};
+
+const Hello = ({ name }: HelloProps) => {
+    return <h1>Hello, {name}</h1>;
+};
+
+export default Hello;
+```
+This `TypeScript` example uses the `arrow function` syntax.
+
+The file structure:
+
+```
+src/
+├─ assets/
+│  └─ react.svg
+│
+├─ components/
+│  └─ Hello/
+│      └─ index.tsx
+│
+├─ App.css
+├─ App.tsx
+├─ index.css
+├─ main.tsx
+```
