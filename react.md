@@ -512,7 +512,7 @@ const StyledButton = styled.button`
 
 // Your component stays simple
 const Button = ({ children = "Button" }: ButtonProps) => {
-    return <StyledButton>{children}</StyledButton>;
+    return <StyledButton>{children}</StyledButton>
 }
 
 export default Button
