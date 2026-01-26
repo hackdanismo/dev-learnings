@@ -9,6 +9,10 @@
     + [Import a Component](#import-a-component)
     + [Props](#props)
         + [Default Prop Values](#default-prop-values)
++ [Styling](#styling)
+    + [CSS Modules](#css-modules)
+    + [Inline Styles](#inline-styles)
+    + [CSS-in-JS](#css-in-js)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -364,4 +368,152 @@ So when using the component with `default prop values`:
 
 {/* This will render the value passed to the component of "Settings" as its label */}
 <Button>Settings</Button>
+```
+
+## Styling
+Once a `React` application has been created and components added, styling can be applied. The simplest approach is to create a `CSS` stylesheet and import it into the individual component. Here is how the file structure would look using the `Button` component as an example:
+
+```
+src/
+├─ assets/
+│  └─ react.svg
+│
+├─ components/
+│  └─ Button/
+│      └─ index.tsx
+│      └─ styles.css
+│
+├─ App.css
+├─ App.tsx
+├─ index.css
+├─ main.tsx
+```
+
+The `CSS` stylesheet can then be imported and used within the component:
+
+```typescript
+import "./styles.css"
+
+type ButtonProps = {
+    children?: React.ReactNode
+}
+
+const Button = ({ children = "Button" }: ButtonProps) => {
+    return <button className="btn">{children}</button>
+}
+
+export default Button
+```
+
+In `React`, the `className` attribute is used to apply classes to a component as `class` is a reserved keyword and cannot be used. The styling can also be written in either `.css` or `.scss` files.
+
+### CSS Modules
+Unlike the standard use of `CSS stylesheets` to apply styling which adds styling to the global scope, `CSS Modules` allows styling to be locally scoped to the component itself. This still uses standard `CSS` syntax.
+
+```
+src/
+├─ assets/
+│  └─ react.svg
+│
+├─ components/
+│  └─ Button/
+│      └─ index.tsx
+│      └─ Button.module.css
+│
+├─ App.css
+├─ App.tsx
+├─ index.css
+├─ main.tsx
+```
+
+The `CSS Module` file would look like this:
+
+```css
+/* Button.module.css */
+.button {
+    background: blue;
+}
+```
+
+This is then imported using the `import` keyword inside of the component:
+
+```typescript
+import styles from "./Button.module.css"
+
+type ButtonProps = {
+    children?: React.ReactNode
+}
+
+const Button = ({ children = "Button" }: ButtonProps) => {
+    return <button className={styles.button}>{children}</button>
+}
+
+export default Button
+```
+
+### Inline Styles
+The `style` attribute can be used to apply styling without the use of an external stylesheet, however, media queries and psuedo classes cannot be used.
+
+```typescript
+type ButtonProps = {
+    children?: React.ReactNode
+}
+
+const Button = ({ children = "Button" }: ButtonProps) => {
+    return <button style={{ backgroundColor: "blue", padding: 12 }}>>{children}</button>
+}
+
+export default Button
+```
+
+### CSS in JS
+Using `CSS-in-JS` allows styles to be generated at runtime. The styles are scoped to the components and dynamic styling can be applied using `props`. The syntax can be more complicated and there are more overheads/abstraction to consider but this is great for use in design systems and component libraries. A package such as `Styled Components` can be used for `React` and `React Native` projects to apply `CSS-in-JS`.
+
+To use the `Styled Components` package:
+
+```shell
+$ npm install styled-components
+# Also, install this if using TypeScript:
+$ npm install -D @types/styled-components
+```
+
+Update the component to use the `styled-components` package:
+
+```typescript
+import styled from "styled-components"
+
+type ButtonProps = {
+  children?: React.ReactNode
+}
+
+// Styled button definition
+const StyledButton = styled.button`
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #1e40af;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+`;
+
+// Your component stays simple
+const Button = ({ children = "Button" }: ButtonProps) => {
+    return <StyledButton>{children}</StyledButton>;
+}
+
+export default Button
 ```
