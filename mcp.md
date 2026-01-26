@@ -20,4 +20,4 @@ The documentation for the `Webflow MCP Server` can be found [here](https://devel
 
 The `Webflow MCP Server` connects AI tools directly to a `Webflow` project. A prompt can be given to an `AI agent` or `LLM` to update designs, manage site data, and work with the CMS directly from within the selected `AI environment`. 
 
-To begin, the `AI` tool is configured. The `MCP server` is added to: `Claude Desktop`, `Claude Code`, `Cursor`, or `Windsurf`.
+To begin, the `AI` tool is configured. The `MCP server` is added to: `Claude Desktop`, `Claude Code`, `Cursor`, or `Windsurf`. The instructions for installing `Claude Code` are [here](https://github.com/anthropics/claude-code#installation).
