@@ -3,8 +3,6 @@
 
 An `MCP` sits between the `LLM` the application and the external tool/service. To think of an `MCP` is to imagine it being like a `USB-C` for `AI tools`, one standard, many connections.
 
-+ [Webflow MCP](#webflow-mcp)
-
 Examples of what an `MCP` can be used for:
 
 + `Read files`
@@ -12,6 +10,10 @@ Examples of what an `MCP` can be used for:
 + `Call APIs (Application Programming Interface)`
 + `Trigger Workflows`
 + `Interact with internal systems`
+
+The `MCP servers` are not created by the companies that own or run the `LLMs`, such as: `Anthropic (Claude)` or `OpenAI (ChatGPT)`, but instead an `MCP` is created by a third-party, such as `Webflow`, or a developer. The `LLMs` simply use the `MCP servers`.
+
++ [Webflow MCP](#webflow-mcp)
 
 ## Webflow MCP
 The documentation for the `Webflow MCP Server` can be found [here](https://developers.webflow.com/mcp/reference/overview). The installation instructions are [here](https://developers.webflow.com/mcp/reference/getting-started).
