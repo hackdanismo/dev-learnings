@@ -14,6 +14,8 @@ Examples of what an `MCP` can be used for:
 + `Interact with internal systems`
 
 ## Webflow MCP
-The documentation for the `Webflow MCP Server` can be found [here](https://developers.webflow.com/mcp/reference/overview).
+The documentation for the `Webflow MCP Server` can be found [here](https://developers.webflow.com/mcp/reference/overview). The installation instructions are [here](https://developers.webflow.com/mcp/reference/getting-started).
 
-The `Webflow MCP Server` connects AI tools directly to a `Webflow` project.
+The `Webflow MCP Server` connects AI tools directly to a `Webflow` project. A prompt can be given to an `AI agent` or `LLM` to update designs, manage site data, and work with the CMS directly from within the selected `AI environment`. 
+
+To begin, the `AI` tool is configured. The `MCP server` is added to: `Claude Desktop`, `Claude Code`, `Cursor`, or `Windsurf`.
