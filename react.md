@@ -13,6 +13,7 @@
     + [CSS Modules](#css-modules)
     + [Inline Styles](#inline-styles)
     + [CSS-in-JS](#css-in-js)
++ [Conditional Rendering](#conditional-rendering)
 
 ## Install
 `Vite` can be used to setup and scaffold a `React` application. This can replace - the now legacy - `create-react-app` tool that was used previously. 
@@ -521,3 +522,6 @@ const Button = ({ children = "Button" }: ButtonProps) => {
 
 export default Button
 ```
+
+## Conditional Rendering
+In `React` the use of `conditional rendering` is important as it allows a UI to change based on `state` or a `prop`.
