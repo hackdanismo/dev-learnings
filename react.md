@@ -525,3 +525,60 @@ export default Button
 
 ## Conditional Rendering
 In `React` the use of `conditional rendering` is important as it allows a UI to change based on `state` or a `prop`.
+
+```typescript
+const Message = () => {
+    const isLoggedIn = true
+
+    if (isLoggedIn) {
+        return <h1>Welcome back</h1>
+    }
+
+    return <h1>Please log in</h1>
+}
+
+export default Message
+```
+
+We can also use a `ternary operator`, which is very common.
+
+```typescript
+type StatusProps = {
+    isOnline: boolean
+}
+
+const Status = ({ isOnline }: StatusProps) => {
+    return (
+        <p>
+            {isOnline ? "Online" : "Offline"}
+        </p>
+    )
+}
+
+export default Status
+```
+
+With this example, we can render "Online" or "Offline" by setting the `isOnline` prop value to be `true` or `false` when we render the component:
+
+```typescript
+<Status isOnline={true} />
+<Status isOnline={false} />
+```
+
+If this example is extended further, we can use `&&` to render an element if the `prop` value `true` and not render anything if the `prop` value is `false`:
+
+```typescript
+type StatusProps = {
+    isOnline: boolean
+}
+
+const Status = ({ isOnline }: StatusProps) => {
+    return (
+        <p>
+            {isOnline && <button>Edit account</button>}
+        </p>
+    )
+}
+
+export default Status
+```
