@@ -371,7 +371,11 @@ So when using the component with `default prop values`:
 ```
 
 ## Styling
-Once a `React` application has been created and components added, styling can be applied. The simplest approach is to create a `CSS` stylesheet and import it into the individual component. Here is how the file structure would look using the `Button` component as an example:
+Once a `React` application has been created and components added, styling can be applied. The simplest approach is to create a `CSS` stylesheet and import it into the individual component. 
+
+A utility-first approach can be used, perhaps using a framework or library such as `Tailwind CSS`.
+
+Here is how the file structure would look using the `Button` component as an example:
 
 ```
 src/
