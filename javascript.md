@@ -43,6 +43,43 @@ The use of `async` is designed for anything that takes time: `timers`, `network 
 
 A function runs from top to bottom. `JavaScript` waits for each line of code to finish before moving on. This is called `Synchronous (blocking)` execution. If `JavaScript` waits for everything to be executed, the application would be slow and potentially freeze. This is where `async (asynchronous)` comes in, which is non-blocking. Essentially: "Don't wait here, tell me when it's done."
 
++ Start a task
++ Moves on
++ Comes back later with the result
+
+The modern approach in `JavaScript`:
+
++ `async` - marks a `function` as `asynchronous` and automatically returns a `promise`.
++ `await` - waits for a `promise` to finish (without blocking the app).
+
+```javascript
+function fetchData() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Hello after 2 seconds"), 2000)
+    })
+}
+
+async function testFunction() {
+    console.log("Start")
+
+    const message = await fetchData()
+
+    console.log(message)
+    console.log("End")
+}
+
+testFunction()
+```
+
+Output:
+
+```shell
+Start
+(wait 2 seconds)
+Hello after 2 seconds
+End
+```
+
 ## Modules
 How a `function` is exported depends on the `module` system being used. A standard `function` works locally but needs to be a `module` to be exported and then imported elsewhere. A modern approach is to use `ES Modules (ESM)`. 
 
