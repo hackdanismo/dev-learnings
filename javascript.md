@@ -2,6 +2,7 @@
 
 + [Files](#files)
 + [Functions](#functions)
+    + [Async](#async)
 + [Modules](#modules)
 
 ## Files
@@ -36,6 +37,11 @@ const testFunction = () => {
 // Call the function to execute the code
 testFunction()
 ```
+
+### Async
+The use of `async` is designed for anything that takes time: `timers`, `network requests`, or `files` are good examples of when to use `async`. 
+
+A function runs from top to bottom. `JavaScript` waits for each line of code to finish before moving on. This is called `Synchronous (blocking)` execution. If `JavaScript` waits for everything to be executed, the application would be slow and potentially freeze. This is where `async (asynchronous)` comes in, which is non-blocking. Essentially: "Don't wait here, tell me when it's done."
 
 ## Modules
 How a `function` is exported depends on the `module` system being used. A standard `function` works locally but needs to be a `module` to be exported and then imported elsewhere. A modern approach is to use `ES Modules (ESM)`. 
