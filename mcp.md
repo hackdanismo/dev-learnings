@@ -71,3 +71,10 @@ To add the `Webflow MCP Server` to `Claude Code`, enter the following terminal c
 ```shell
 $ claude mcp add --transport http webflow https://mcp.webflow.com/mcp
 ```
+
+Once this command has been run, the output of the terminal will look like this:
+
+```shell
+Added HTTP MCP server webflow with URL: https://mcp.webflow.com/mcp to local config
+File modified: /Users/danieljackson/.claude.json [project: /Users/danieljackson]
+```
