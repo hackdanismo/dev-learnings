@@ -105,3 +105,5 @@ Once authorised, the terminal will confirm that `Claude Code` is now connected t
 
 <img width="576" height="406" alt="Screenshot 2026-02-03 at 14 31 42" src="https://github.com/user-attachments/assets/26ecf490-b7f6-458f-bb3d-8f3d76cb52f3" />
 
+A `Slack` setup can be used to create `Webflow collections`, as long as the Slack-connected `Claude` has access to the same `MCP server` that is already configured.
+
