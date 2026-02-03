@@ -15,6 +15,7 @@ The `MCP servers` are not created by the companies that own or run the `LLMs`, s
 
 + [Setup Claude Code](#setup-claude-code)
 + [Webflow MCP](#webflow-mcp)
+  + [Add Webflow MCP Server to Claude Code](#add-webflow-mcp-server-to-claude-code)
 
 ## Setup Claude Code
 To install `Claude Code`, follow the installation instructions [here](https://github.com/anthropics/claude-code). To summarise, open the terminal and install `Claude Code`:
@@ -55,9 +56,18 @@ To start `Claude Code`:
 $ claude
 ```
 
+Once logged in, a `Claude Max` or `Pro` subsciption is required to connect to `Claude Code`. This is needed to use the `Webflow MCP Server`. When logging in, the account email will be required.
+
 ## Webflow MCP
 The documentation for the `Webflow MCP Server` can be found [here](https://developers.webflow.com/mcp/reference/overview). The installation instructions are [here](https://developers.webflow.com/mcp/reference/getting-started).
 
 The `Webflow MCP Server` connects AI tools directly to a `Webflow` project. A prompt can be given to an `AI agent` or `LLM` to update designs, manage site data, and work with the CMS directly from within the selected `AI environment`. 
 
 To begin, the `AI` tool is configured. The `MCP server` is added to: `Claude Desktop`, `Claude Code`, `Cursor`, or `Windsurf`. The instructions for installing `Claude Code` are [here](https://github.com/anthropics/claude-code#installation).
+
+### Add Webflow MCP Server to Claude Code
+To add the `Webflow MCP Server` to `Claude Code`, enter the following terminal command:
+
+```shell
+$ claude mcp add --transport http webflow https://mcp.webflow.com/mcp
+```
