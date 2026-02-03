@@ -64,6 +64,8 @@ When `Claude Code` is running, to list the `MCP Servers` that have been configur
 $ /mcp list 
 ```
 
+To provide access outside of the terminal, `Slack` can be used as there's a `Claude Code in Slack` path (`beta/research preview`) that lets people interact from threads/messages instead of a shell. This tends to be the lowest-friction “outside the terminal” option.
+
 ## Webflow MCP
 The documentation for the `Webflow MCP Server` can be found [here](https://developers.webflow.com/mcp/reference/overview). The installation instructions are [here](https://developers.webflow.com/mcp/reference/getting-started).
 
