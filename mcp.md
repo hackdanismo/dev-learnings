@@ -14,6 +14,7 @@ Examples of what an `MCP` can be used for:
 The `MCP servers` are not created by the companies that own or run the `LLMs`, such as: `Anthropic (Claude)` or `OpenAI (ChatGPT)`, but instead an `MCP` is created by a third-party, such as `Webflow`, or a developer. The `LLMs` simply use the `MCP servers`.
 
 + [Setup Claude Code](#setup-claude-code)
++ [Agents](#agents)
 + [Webflow MCP](#webflow-mcp)
   + [Add Webflow MCP Server to Claude Code](#add-webflow-mcp-server-to-claude-code)
 
@@ -65,6 +66,48 @@ $ /mcp list
 ```
 
 To provide access outside of the terminal, `Slack` can be used as there's a `Claude Code in Slack` path (`beta/research preview`) that lets people interact from threads/messages instead of a shell. This tends to be the lowest-friction “outside the terminal” option. The documentation can be found [here](https://code.claude.com/docs/en/slack).
+
+## Agents
+In `Claude Code`, agents are referred to as `custom subagents`. This is a specialised agent that Claude can delegate to. To create a new agent, open `Claude Code` and type:
+
+```shell
+/agents
+```
+
+This will list out any agents that are currently created and provides an option to create an agent.
+
+From this menu, select: `Create new agent`:
+
+<img width="577" height="392" alt="Screenshot 2026-02-10 at 14 57 32" src="https://github.com/user-attachments/assets/bcf902ba-99c4-4adc-85ae-e840528a17a9" />
+
+Within the following file location: `.claude/agents/webflow-cms-builder.md` an agent `markdown` file can be created. This example is to create a `CMS Collection` inside of `Webflow`:
+
+```
+---
+name: webflow-cms-builder
+description: Creates Webflow CMS Collections with a given name and field schema in the designated Webflow site via Webflow MCP.
+tools: Read, Glob, Grep
+disallowedTools: Write, Edit, Bash
+---
+
+You are a Webflow CMS automation specialist.
+
+Rules:
+- Only use Webflow MCP tools (no direct HTTP/curl).
+- Before making changes, confirm the target site by name and ensure it is authorized.
+- Check if a collection with the same name (or slug) already exists; if it does, do not create a duplicate—ask for a new name or propose a safe alternative.
+- When creating a collection, output the created collection’s id, slug, and a summary of fields.
+
+When the user provides:
+- site name (or indicates “current project”),
+- collection display name and singular name,
+- field list (display name + type + required/optional + any refs/options),
+then create the collection.
+```
+
+Within `Claude Code`, the following prompt could then be used: `“Use webflow-cms-builder to create a collection named Testimonials (singular Testimonial) with fields: author (Plain text, required), role (Plain text), photo (Image), quote (Rich text, required). Target site: Acme Marketing.”`.
+
+Agents help when you want repeatable behavior or constraints.
 
 ## Webflow MCP
 The documentation for the `Webflow MCP Server` can be found [here](https://developers.webflow.com/mcp/reference/overview). The installation instructions are [here](https://developers.webflow.com/mcp/reference/getting-started).
