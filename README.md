@@ -6,9 +6,9 @@ A collection of nodes, code snippets and examples to help with learning around d
 + [Tools](#tools)
 + [Programming Languages](#programming-languages)
 + [Frameworks and Libraries](#frameworks-and-libraries)
++ [Security](#security)
 
 ## Artificial Intelligence
-
 + [MCP (Model Context Protocol)](mcp.md)
 
 ## Tools
@@ -18,5 +18,7 @@ A collection of nodes, code snippets and examples to help with learning around d
 + [JavaScript](javascript.md)
 
 ## Frameworks and Libraries
-
 + [React](react.md)
+
+## Security
++ [Security](#security)
