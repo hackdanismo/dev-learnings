@@ -20,6 +20,8 @@ When this is turned on, `Webflow` will allow you to set custom `security headers
 
 <img width="1449" height="438" alt="Screenshot 2026-02-12 at 13 37 35" src="https://github.com/user-attachments/assets/0041c482-5a73-4a26-b2dc-572dc1ac31a0" />
 
+A `security report` to check headers can be run [here](https://developer.mozilla.org/en-US/observatory/analyze?host=www.frontify.com).
+
 ## X-Content-Type-Options
 This header is designed to only accept the trusted content of a file type. It's a security hardening header originally introduced by `Microsoft` and now supported by all modern browsers. Essentially: `"Do not guess (sniff) the file type — only trust the declared Content-Type header."`. Browsers sometimes try to be "helpful" by `MIME sniffing`: They look at file contents and override the declared type. An example, the server says:
 
