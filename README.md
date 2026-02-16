@@ -16,6 +16,7 @@ A collection of nodes, code snippets and examples to help with learning around d
 + [Git](git.md)
 
 ## Programming Languages
++ [HTML](html.md)
 + [JavaScript](javascript.md)
 
 ## Frameworks and Libraries
