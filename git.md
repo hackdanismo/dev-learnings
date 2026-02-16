@@ -3,6 +3,7 @@
 + [Install](#install)
 + [Using Git](#using-git)
 + [View History](#view-history)
++ [Branches](#branches)
 
 ## Install
 `Git` is a distributed `version control system (VCS)` — a tool that tracks changes to files (especially code) over time. To install `Git`, for `Windows` and `macOS`, open [https://git-scm.com/](https://git-scm.com/) and select the installation required. Once installed, check the version of `Git` that is installed on the system. To check the version of `Git` installed:
@@ -108,4 +109,27 @@ To view the history of a project in version control, use the `log` command. This
 
 ```shell
 $ git log
+```
+
+## Branches
+A `branch` allows a copy of the `main` branch to be created so changes and updates can be made in isolation and then merged back into the main codebase when required/completed. To create a new branch, the `checkout` and `-b` flag is used:
+
+```shell
+$ git checkout -b "feature/branch-name-here"
+```
+
+This will create a new branch named: `feature/branch-name-here` and switch to this branch. Using `git status` will show the current branch we are on.
+
+Once changes are completed, the branch can be merged back into the main code base using `git merge`. This joins another branch into your current branch. So we would checkout the `main` branch and then use `git merge` to merge the changes in.
+
+```shell
+# Checkout the main branch
+$ git checkout main
+# Get any recent changes on the main branch
+$ git pull
+# Merge changes from the feature branch into the main branch. The feature/branch-name-here branch is now inside main
+$ git merge feature/branch-name-here
+
+# Delete the feature/branch-name-here branch
+$ git branch -D feature/branch-name-here
 ```
