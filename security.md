@@ -105,6 +105,8 @@ Security standards like the `OWASP Foundation` recommend enabling `HSTS` for all
 ## Content Security Policy
 Think of `Content Security Policy (CSP)` as a firewall for the browser. Instead of trusting every `script`, `image`, or `iframe` a page tries to load, `CSP` tells the browser: "Only load resources from these exact places — block everything else.". It's one of the strongest defenses against `XSS` and `supply-chain` attacks.
 
+In simple terms, `CSP` tells the browser exactly which external resources are allowed to load — `scripts`, `styles`, `images`, `tracking pixels`, `frames`, etc. Everything not explicitly allowed is blocked.
+
 If the CSP policy says:
 
 ```
