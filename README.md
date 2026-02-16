@@ -13,6 +13,7 @@ A collection of nodes, code snippets and examples to help with learning around d
 
 ## Tools
 + [Bun](bun.md)
++ [Git](git.md)
 
 ## Programming Languages
 + [JavaScript](javascript.md)
